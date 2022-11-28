@@ -16,7 +16,7 @@ RUN set -xe; \
   apt install -y \ 
     curl \
     bash \
-    gzip; \
+    pigz; \
     rm -rf /var/lib/apt/lists/*
 
 RUN  cd /tmp; \
@@ -24,7 +24,7 @@ RUN  cd /tmp; \
   chmod +x oneget; \ 
   ./oneget --debug get  --extract --rename platform:linux.full.x64@$ONEC_VERSION; \
   cd /tmp/downloads/$TYPE/$ONEC_VERSION/server64.$ONEC_VERSION.tar.gz.extract; \ 
-  ./setup-full-$ONEC_VERSION-x86_64.run --mode unattended  --enable-components client_thin,ws,server_admin,server  --installer-language en; \
+  ./setup-full-$ONEC_VERSION-x86_64.run --mode unattended  --enable-components ws,server_admin,server; \
   cd /tmp; \
   rm -rf downloads
 

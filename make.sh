@@ -32,8 +32,7 @@ do
         docker build -t $IMAGE_NAME:"$item" \
             --build-arg ONEC_USERNAME="$ONEC_USERNAME" \
             --build-arg ONEC_PASSWORD="$ONEC_PASSWORD"  \
-            --build-arg ONEC_VERSION="$item" 
-            -f Dockerfile_deb.
+            --build-arg ONEC_VERSION="$item" -f Dockerfile_deb .
 
         docker build -t $IMAGE_NAME:"$item"-k8s \
             --build-arg IMAGE_NAME="$IMAGE_NAME" \
